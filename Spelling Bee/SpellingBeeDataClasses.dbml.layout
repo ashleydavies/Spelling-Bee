@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.5" name="SpellingBeeDataClasses">
+  <DataContextMoniker Name="/SpellingBeeDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5bc337ce-8736-4951-bd5d-da4b64bf4398" absoluteBounds="1.875, 5.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/TestQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d608e6b-3341-4a68-8550-db8fac5ca1ca" absoluteBounds="1.8900000000000001, 6.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="41ceba73-b2c0-445d-a7dd-9ae18fc489d7" absoluteBounds="1.875, 3, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5bbc8811-baa1-4571-985a-067494abe213" absoluteBounds="1.8900000000000001, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82b67e93-89b5-4e62-9b4d-1f070156f2f7" absoluteBounds="6.875, 3, 2, 1.3862939453125">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/StudentClass" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69c27c98-2efd-406d-b55f-d20ee8df55ff" absoluteBounds="6.89, 3.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9210b1c4-ac36-47dc-bc2f-801ac45bbda7" absoluteBounds="4.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/Class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0468c62-3757-4f10-922d-54b0fb7cef3e" absoluteBounds="4.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 3.69314697265625); (6.875 : 3.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Class/Class_StudentClass" />
+      <nodes>
+        <classShapeMoniker Id="9210b1c4-ac36-47dc-bc2f-801ac45bbda7" />
+        <classShapeMoniker Id="82b67e93-89b5-4e62-9b4d-1f070156f2f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 3.78929768880208); (4.5 : 3.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Staff/Staff_Class" />
+      <nodes>
+        <classShapeMoniker Id="41ceba73-b2c0-445d-a7dd-9ae18fc489d7" />
+        <classShapeMoniker Id="9210b1c4-ac36-47dc-bc2f-801ac45bbda7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="368b4071-a97d-4bc1-a9d4-bc9afad51da7" absoluteBounds="6.875, 5.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/Student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f46d3464-7b45-499e-bbb8-4bea57e2ab81" absoluteBounds="6.89, 6.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 5.625); (7.875 : 4.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Student/Student_StudentClass" />
+      <nodes>
+        <classShapeMoniker Id="368b4071-a97d-4bc1-a9d4-bc9afad51da7" />
+        <classShapeMoniker Id="82b67e93-89b5-4e62-9b4d-1f070156f2f7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c499f0ee-7793-44d6-9416-8c036471335b" absoluteBounds="2, 8.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/TestQuestionResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da3cabc2-cc8d-4ede-936e-3839bbac0fe3" absoluteBounds="2.015, 8.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.9375 : 7.39589680989583); (2.9375 : 8.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/TestQuestion/TestQuestion_TestQuestionResult" />
+      <nodes>
+        <classShapeMoniker Id="5bc337ce-8736-4951-bd5d-da4b64bf4398" />
+        <classShapeMoniker Id="c499f0ee-7793-44d6-9416-8c036471335b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="78b6c1b9-895e-415b-8fd9-38d759976519" absoluteBounds="4.5, 8.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/TestResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6a934bf-2c66-40d1-94f2-524c095b8586" absoluteBounds="4.515, 8.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 9.28929768880208); (4 : 9.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/TestResult/TestResult_TestQuestionResult" />
+      <nodes>
+        <classShapeMoniker Id="78b6c1b9-895e-415b-8fd9-38d759976519" />
+        <classShapeMoniker Id="c499f0ee-7793-44d6-9416-8c036471335b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.21875 : 7.39589680989583); (8.21875 : 9.407900390625); (6.5 : 9.407900390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Student/Student_TestResult" />
+      <nodes>
+        <classShapeMoniker Id="368b4071-a97d-4bc1-a9d4-bc9afad51da7" />
+        <classShapeMoniker Id="78b6c1b9-895e-415b-8fd9-38d759976519" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d24a3dc0-5c66-4a51-9de0-d13e9be84919" absoluteBounds="4.5, 5.625, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/SpellingBeeDataClassesDataContext/Test" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d80b359f-d7bf-4b7d-99c5-83c8355f42c9" absoluteBounds="4.515, 6.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 6.51044840494792); (3.875 : 6.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Test/Test_TestQuestion" />
+      <nodes>
+        <classShapeMoniker Id="d24a3dc0-5c66-4a51-9de0-d13e9be84919" />
+        <classShapeMoniker Id="5bc337ce-8736-4951-bd5d-da4b64bf4398" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.5 : 8.54970540364583); (6.875 : 8.92470540364583); (6.875 : 8.9226981953125); (6.5 : 8.9226981953125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Test/Test_TestResult" />
+      <nodes>
+        <classShapeMoniker Id="d24a3dc0-5c66-4a51-9de0-d13e9be84919" />
+        <classShapeMoniker Id="78b6c1b9-895e-415b-8fd9-38d759976519" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.57859537760417); (5.5 : 5.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SpellingBeeDataClassesDataContext/Class/Class_Test" />
+      <nodes>
+        <classShapeMoniker Id="9210b1c4-ac36-47dc-bc2f-801ac45bbda7" />
+        <classShapeMoniker Id="d24a3dc0-5c66-4a51-9de0-d13e9be84919" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

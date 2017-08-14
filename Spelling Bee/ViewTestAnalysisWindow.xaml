@@ -1,0 +1,62 @@
+﻿<Controls:MetroWindow x:Class="Spelling_Bee.ViewTestAnalysisWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Test Analysis Window" Style="{DynamicResource BaseWindowStyle}" SizeToContent="Height" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto" MinHeight="30"/>
+            <RowDefinition Height="Auto" MinHeight="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="160"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTitle" Content="Results Overview for: &lt; Test Name &gt;" Grid.ColumnSpan="2" Style="{DynamicResource StaffTitleLabel}"/>
+
+        <Button x:Name="btnClassPerformance" Content="See how classes performed in this test" Margin="0,5,0,5" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10,3,10,3" Click="btnClassPerformance_Click"/>
+        
+        <Label Content="Number of students that sat this test:" Grid.Row="2" Style="{DynamicResource StaffFormLabel}"/>
+        <Label x:Name="lblStudentCount" Content="Number" Grid.Row="2" Grid.Column="1" Style="{DynamicResource StaffFormLabelRight}"/>
+        
+        <Label Content="Average Mark &amp; Percentage:" Grid.Row="3" Style="{DynamicResource StaffFormLabel}"/>
+        <Label x:Name="lblAveragePercentage" Content="Percent &amp; Mark" Grid.Row="3" Grid.Column="2" Style="{DynamicResource StaffFormLabelRight}"/>
+
+        <Label Content="Standard Deviation (Data Spread):" Grid.Row="4" Style="{DynamicResource StaffFormLabel}"/>
+        <Label x:Name="lblStandardDeviation" Content="Standard Deviation" Grid.Row="4" Grid.Column="2" Style="{DynamicResource StaffFormLabelRight}"/>
+        
+        <Label Content="Best Performance:" Grid.Row="5" Style="{DynamicResource StaffFormLabel}"/>
+        <TextBlock x:Name="txtTopInClass" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2" Padding="0,5,0,5"/>
+        
+        <Label Content="Worst Performance:" Grid.Row="6" Style="{DynamicResource StaffFormLabel}"/>
+        <TextBlock x:Name="txtWorstInClass" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" Padding="0,5,0,5"/>
+
+        <Label Content="Spelt right the most:" Grid.Row="7" Style="{DynamicResource StaffFormLabel}"/>
+        <TextBlock x:Name="txtSpeltRightMost" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Padding="0,5,0,5"/>
+        
+        <Label Content="Spelt wrong the most:" Grid.Row="8" Style="{DynamicResource StaffFormLabel}"/>
+        <TextBlock x:Name="txtSpeltWrongMost" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" Padding="0,5,0,5"/>
+
+        <Label Content="Student Data:" Grid.Row="9" Style="{DynamicResource StaffFormLabel}" HorizontalAlignment="Left" Margin="25,0,0,0"/>
+        <Button x:Name="btnViewAnalysis" Content="View detailed analysis (Selected)" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Padding="2" IsEnabled="False" Click="btnViewAnalysis_Click"/>
+        <ListView Grid.Row="10" Grid.ColumnSpan="2" Margin="5" x:Name="lstStudentData" SelectionChanged="lstStudentData_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Student Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Student.StudentName}" Header="Name" Width="160"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Student.StudentDOB,StringFormat={}\{0:dd/MM/yyyy\}}" Header="Date of Birth" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Score}" Header="Score" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+    </Grid>
+</Controls:MetroWindow>

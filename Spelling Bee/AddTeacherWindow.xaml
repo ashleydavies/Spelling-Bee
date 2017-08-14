@@ -1,0 +1,46 @@
+﻿<Controls:MetroWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+	x:Class="Spelling_Bee.AddTeacherWindow"
+	Title="Add Staff"
+	Width="230" SizeToContent="Height" Style="{DynamicResource BaseWindowStyle}">
+    <!-- Oops! This form is called 'AddTeacherWindow'... Ah well, won't make a front-end difference.-->
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Add Staff" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" Height="31.28" Width="75.627"/>
+        <RadioButton x:Name="radTeacher" Content="Teacher" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" TabIndex="1" IsChecked="True"/>
+        <RadioButton x:Name="radSysadmin" Content="Sysadmin" Margin="20,33,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" TabIndex="1"/>
+
+        <Label Content="Prefix:" Style="{DynamicResource StaffFormLabel}" Grid.Row="1"/>
+        <ComboBox x:Name="cmbPrefix" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" TabIndex="2" Margin="0,1.52,12,1.52">
+            <ComboBoxItem Content="Mr"/>
+            <ComboBoxItem Content="Miss"/>
+            <ComboBoxItem Content="Mrs"/>
+        </ComboBox>
+
+        <Label Content="Forename:" Style="{DynamicResource StaffFormLabel}" Grid.Row="2"/>
+        <TextBox x:Name="txtForename" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="2" TabIndex="3"/>
+
+        <Label Content="Surname:" Style="{DynamicResource StaffFormLabel}" Grid.Row="3"/>
+        <TextBox x:Name="txtSurname" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="3" TabIndex="4"/>
+
+        <Label Content="Password:" Style="{DynamicResource StaffFormLabel}" Grid.Row="4"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="4" TabIndex="5"/>
+
+        <Button x:Name="btnCreate" Content="Create Staff" Height="25" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,25" Grid.ColumnSpan="2" Grid.Row="5" TabIndex="7" Click="btnCreate_Click" IsDefault="True"/>
+    </Grid>
+</Controls:MetroWindow>

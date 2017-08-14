@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="Spelling_Bee.RequestYearWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RequestYearWindow" Style="{DynamicResource BaseWindowStyle}" SizeToContent="Height" Width="220">
+    <Grid>
+        <Label x:Name="lblTitle" Content="Title" Style="{DynamicResource StaffTitleLabel}"/>
+        <ComboBox x:Name="cmbYear" Margin="10, 30, 10, 40">
+            <ComboBoxItem>
+                Year 3
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Year 4
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Year 5
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Year 6
+            </ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnSubmit" Content="Submit" Margin="0, 0, 10, 10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnSubmit_Click"/>
+    </Grid>
+</Controls:MetroWindow>

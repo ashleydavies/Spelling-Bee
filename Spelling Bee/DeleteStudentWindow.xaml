@@ -1,0 +1,19 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Spelling_Bee.DeleteStudentWindow"
+	x:Name="Window"
+	Title="Delete Student"
+	Width="210" Height="152.167" WindowStyle="ToolWindow">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="70"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Label Content="Delete a Student" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+		<Label Content="Student:" HorizontalAlignment="Left" Margin="12.97,32.28,0,0" VerticalAlignment="Top" Style="{DynamicResource StaffBusinessLabel}" RenderTransformOrigin="0.22,0.518"/>
+		<ComboBox HorizontalAlignment="Left" Margin="2,36.28,0,0" VerticalAlignment="Top" Width="120" Height="21.96" Grid.Column="1"/>
+		<Button Content="Delete Student" Width="150" Height="25" VerticalAlignment="Bottom" Margin="0,0,0,15" Grid.ColumnSpan="2"/>
+	</Grid>
+</Window>

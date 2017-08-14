@@ -1,0 +1,58 @@
+﻿<Controls:MetroWindow x:Class="Spelling_Bee.ViewClassAnalysisWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Class Overall Analysis Window" Style="{DynamicResource BaseWindowStyle}" SizeToContent="Height" Width="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Name="lblTitle" Content="Viewing overall analysis for class: &lt; Class &gt;" Grid.ColumnSpan="2" Style="{DynamicResource StaffTitleLabel}"/>
+        
+        <TextBlock Text="To ensure fairness across classes, the only tests included in the results are ones which this class' entire year group sat this year. The list at the bottom displays all tests sat by members of this class, however." Margin="5,0,5,0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2"/>
+        
+        <Label Content="Number of pupils in class:" Style="{DynamicResource StaffFormLabel}" Grid.Row="2"/>
+        <Label x:Name="lblPupilCount" Content="Number" Style="{DynamicResource StaffFormLabelRight}" Grid.Row="2" Grid.Column="1"/>
+        
+        <Label Content="Number of tests sat:" Style="{DynamicResource StaffFormLabel}" Grid.Row="3"/>
+        <Label x:Name="lblSitTestCount" Content="Number" Style="{DynamicResource StaffFormLabelRight}" Grid.Row="3" Grid.Column="1"/>
+         
+        <Label Content="Average Mark:" Style="{DynamicResource StaffFormLabel}" Grid.Row="4"/>
+        <Label x:Name="lblAverageMark" Content="Mark" Style="{DynamicResource StaffFormLabelRight}" Grid.Row="4" Grid.Column="1"/>
+
+        <Label Content="Pupils in this class:" Grid.Row="5" Style="{DynamicResource StaffFormLabel}"/>
+        <Button x:Name="btnViewStudentAnalysis" Content="View Detailed Analysis" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" Padding="3" IsEnabled="False" Click="btnViewStudentAnalysis_Click"/>
+        <ListView Grid.Row="6" Grid.ColumnSpan="2" Margin="5" x:Name="lstStudentData" SelectionChanged="lstStudentData_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Student Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Student.StudentName}" Header="Name" Width="210"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Student.StudentDOB,StringFormat={}\{0:dd/MM/yyyy\}}" Header="Date of Birth" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label Content="Tests sat by this class:" Grid.Row="7" Style="{DynamicResource StaffFormLabel}"/>
+        <Button x:Name="btnViewTestAnalysis" Content="View Detailed Analysis" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" Padding="3" IsEnabled="False" Click="btnViewTestAnalysis_Click"/>
+        <ListView Grid.Row="8" Grid.ColumnSpan="2" Margin="5" x:Name="lstTestData" SelectionChanged="lstTestData_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Test Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TestName}" Header="Name" Width="210"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TestBegin,StringFormat={}\{0:dd/MM/yyyy\}}" Header="Date of Test" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Controls:MetroWindow>

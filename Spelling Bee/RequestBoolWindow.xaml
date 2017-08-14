@@ -1,0 +1,12 @@
+﻿<Controls:MetroWindow x:Class="Spelling_Bee.RequestBoolWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RequestBoolWindow" Style="{DynamicResource BaseWindowStyle}" SizeToContent="Height" Width="400">
+    <Grid>
+        <Label x:Name="lblTitle" Content="Title" Style="{DynamicResource StaffTitleLabel}"/>
+        <TextBlock x:Name="txtContent" Text="Content" TextWrapping="WrapWithOverflow" Margin="10,30,10,40" />
+        <Button x:Name="btnYes" Content="Yes" Margin="0, 0, 10, 10" Width="50"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnYes_Click"/>
+        <Button x:Name="btnNo" Content="No" Margin="0, 0, 70, 10" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnNo_Click"/>
+    </Grid>
+</Controls:MetroWindow>

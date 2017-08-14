@@ -1,0 +1,44 @@
+﻿<Controls:MetroWindow x:Class="Spelling_Bee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="Login Window" Width="430" Style="{DynamicResource StudentWindowStyle}" SizeToContent="Height">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="36"/>
+			<RowDefinition Height="0"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="30"/>
+            <RowDefinition Name="errorRow" Height="50"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+
+		<Image Source="background.png" Stretch="Fill" Width="800" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="-10" Grid.ColumnSpan="2" Grid.RowSpan="7"/>
+        <Rectangle Width="800" Height="300"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Opacity="0.4" Grid.ColumnSpan="2" Grid.RowSpan="7" Fill="#FF25DEFF" Panel.ZIndex="-5"/>
+
+		<Rectangle Grid.Row="0" Height="36" VerticalAlignment="Top" Fill="#FF4EC7FF" Grid.ColumnSpan="2" Stroke="Black" Margin="-1"/>
+        <Label Grid.Row="0" Content="Greenparks School Spelling Bee" HorizontalAlignment="Left" Margin="120,0,0,0" HorizontalContentAlignment="Left" FontSize="20" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="36.6" Width="288.987"/>
+		
+		<Rectangle Grid.Row="0" Grid.RowSpan="6" Margin="8,3,0,0" Width="90" Height="121" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="#FF4EC7FF" Stroke="Black" Panel.ZIndex="-1"/>
+		<Line Grid.Row="0" X1="9" X2="97" Y1="34" Y2="34" Stroke="#FF4EC7FF" StrokeThickness="2" />
+        <Image Grid.Row="0" Grid.RowSpan="6" Source="Logo.png" Margin="10,5,0,0" Width="86" Height="117" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
+
+        <Label Content="User Number:" Grid.Row="2" Style="{DynamicResource StudentFormLabel}"/>
+		<TextBox x:Name="txtUsername" Grid.Row="2" Grid.Column="1" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource StudentTextBoxStyle}" Margin="5,0,0,0"/>
+		
+		<Label Content="Password:" Grid.Row="3" Style="{DynamicResource StudentFormLabel}"/>
+		<PasswordBox x:Name="txtPassword" Grid.Row="3" Grid.Column="1" Width="180" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource StudentPasswordBoxStyle}" Margin="5,0,0,0"/>
+
+		<CheckBox x:Name="chkStaff" Grid.Row="4" Grid.Column="1" Content="Staff Login" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource StudentCheckBoxStyle}"/>
+
+
+		<Button x:Name="btnLogin" Grid.Row="6" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="250" Style="{DynamicResource StudentButtonStyle}" Click="btnLogin_Click" IsDefault="True" Grid.ColumnSpan="2" Margin="0,0,0,10" Height="30"/>
+        
+        <Label x:Name="lblBadLogin" Grid.Row="5" Content="Your user number or password was incorrect." HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333" Background="#FFFF8E8E" BorderBrush="Black" BorderThickness="1" Height="30" VerticalAlignment="Center" Width="294" Visibility="Hidden" Grid.ColumnSpan="2"/>
+   </Grid>
+</Controls:MetroWindow>

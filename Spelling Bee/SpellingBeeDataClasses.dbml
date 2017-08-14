@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SpellingBeeDatabase" Class="SpellingBeeDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\SpellingBeeDatabase.mdf;Integrated Security=True" SettingsObjectName="Spelling_Bee.Properties.Settings" SettingsPropertyName="SpellingBeeDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TestQuestions" Member="TestQuestions">
+    <Type Name="TestQuestion">
+      <Column Name="TestQuestionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="QuestionNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TestQuestion_TestQuestionResult" Member="TestQuestionResults" ThisKey="TestQuestionID" OtherKey="QuestionID" Type="TestQuestionResult" />
+      <Association Name="Test_TestQuestion" Member="Test" ThisKey="TestID" OtherKey="TestID" Type="Test" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="StaffID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StaffPassword" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="StaffPrefix" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="StaffForename" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="StaffSurname" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="IsAdministrative" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Staff_Class" Member="Classes" ThisKey="StaffID" OtherKey="TeacherID" Type="Class" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentClasses" Member="StudentClasses">
+    <Type Name="StudentClass">
+      <Column Name="StudentClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Class_StudentClass" Member="Class" ThisKey="ClassID" OtherKey="ClassID" Type="Class" IsForeignKey="true" />
+      <Association Name="Student_StudentClass" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classes" Member="Classes">
+    <Type Name="Class">
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TeacherID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClassName" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="ClassYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Class_StudentClass" Member="StudentClasses" ThisKey="ClassID" OtherKey="ClassID" Type="StudentClass" />
+      <Association Name="Class_Test" Member="Tests" ThisKey="ClassID" OtherKey="ClassID" Type="Test" />
+      <Association Name="Staff_Class" Member="Staff" ThisKey="TeacherID" OtherKey="StaffID" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Students" Member="Students">
+    <Type Name="Student">
+      <Column Name="StudentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentName" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="StudentYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentPassword" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="StudentDOB" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Student_StudentClass" Member="StudentClasses" ThisKey="StudentID" OtherKey="StudentID" Type="StudentClass" />
+      <Association Name="Student_TestResult" Member="TestResults" ThisKey="StudentID" OtherKey="StudentID" Type="TestResult" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestQuestionResults" Member="TestQuestionResults">
+    <Type Name="TestQuestionResult">
+      <Column Name="TestQuestionResultID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResultsID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TestQuestion_TestQuestionResult" Member="TestQuestion" ThisKey="QuestionID" OtherKey="TestQuestionID" Type="TestQuestion" IsForeignKey="true" />
+      <Association Name="TestResult_TestQuestionResult" Member="TestResult" ThisKey="ResultsID" OtherKey="ResultsID" Type="TestResult" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestResults" Member="TestResults">
+    <Type Name="TestResult">
+      <Column Name="ResultsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TestResult_TestQuestionResult" Member="TestQuestionResults" ThisKey="ResultsID" OtherKey="ResultsID" Type="TestQuestionResult" />
+      <Association Name="Student_TestResult" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
+      <Association Name="Test_TestResult" Member="Test" ThisKey="TestID" OtherKey="TestID" Type="Test" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tests" Member="Tests">
+    <Type Name="Test">
+      <Column Name="TestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestName" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="TestYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestTimeLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastTestOfTerm" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastTestOfYear" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WholeYearTest" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastTestActionExecuted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestOpen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Test_TestQuestion" Member="TestQuestions" ThisKey="TestID" OtherKey="TestID" Type="TestQuestion" />
+      <Association Name="Test_TestResult" Member="TestResults" ThisKey="TestID" OtherKey="TestID" Type="TestResult" />
+      <Association Name="Class_Test" Member="Class" ThisKey="ClassID" OtherKey="ClassID" Type="Class" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

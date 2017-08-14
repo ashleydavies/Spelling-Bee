@@ -1,0 +1,28 @@
+﻿<Controls:MetroWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"    
+	x:Class="Spelling_Bee.SysAdminRoot"
+	x:Name="Window"
+	Title="System Admin Home"
+	Width="474" Height="100" Style="{DynamicResource BaseWindowStyle}">
+
+	<Grid>
+		<Menu IsMainMenu="True" Height="Auto" VerticalAlignment="Top">
+			<MenuItem Header="_Classes">
+				<MenuItem x:Name="mnuClassAdd" Header="_Add" Click="mnuClassAdd_Click"/>
+				<MenuItem x:Name="mnuClassView" Header="View &amp; _Edit classes" Click="mnuClassView_Click"/>
+			</MenuItem>
+			<MenuItem Header="_Students">
+				<MenuItem x:Name="mnuStudentAdd" Header="_Add" Click="mnuStudentAdd_Click"/>
+				<MenuItem x:Name="mnuStudentView" Header="View &amp; _Edit Students" Click="mnuStudentView_Click"/>
+                <MenuItem x:Name="menuStudentAddToClass" Header="A_dd to class" Click="menuStudentAddToClass_Click"/>
+			</MenuItem>
+			<MenuItem Header="S_taff">
+				<MenuItem x:Name="mnuStaffAdd" Header="_Add" Click="mnuStaffAdd_Click"/>
+				<MenuItem x:Name="mnuStaffView" Header="View &amp; _Edit Staff" Click="mnuStaffView_Click"/>
+			</MenuItem>
+		</Menu>
+		<Button x:Name="btnOpenTeacherRoot" Content="Open Teacher Root" Width="450" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" Click="btnOpenTeacherRoot_Click"/>
+	</Grid>
+</Controls:MetroWindow>
